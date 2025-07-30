@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+    <head>
+        <title>FIT2102 A1 2023</title>
+    </head>
+    <body>
+        <h1>Guitar Hero</h1>
+        <main id="main" class="flex row">
+            <svg id="svgCanvas" viewBox="0 0 200 400">
+                
+                <defs>
+                    <!-- Define radial gradients for shading -->
+                    <radialGradient
+                        id="greenGradient"
+                        cx="50%"
+                        cy="50%"
+                        r="50%"
+                        fx="50%"
+                        fy="50%"
+                    >
+                        <stop
+                            offset="0%"
+                            style="stop-color: #00ff00; stop-opacity: 1"
+                        />
+                        <stop
+                            offset="100%"
+                            style="stop-color: #005500; stop-opacity: 1"
+                        />
+                    </radialGradient>
+                    <radialGradient
+                        id="redGradient"
+                        cx="50%"
+                        cy="50%"
+                        r="50%"
+                        fx="50%"
+                        fy="50%"
+                    >
+                        <stop
+                            offset="0%"
+                            style="stop-color: #ff0000; stop-opacity: 1"
+                        />
+                        <stop
+                            offset="100%"
+                            style="stop-color: #550000; stop-opacity: 1"
+                        />
+                    </radialGradient>
+                    <radialGradient
+                        id="blueGradient"
+                        cx="50%"
+                        cy="50%"
+                        r="50%"
+                        fx="50%"
+                        fy="50%"
+                    >
+                        <stop
+                            offset="0%"
+                            style="stop-color: #0000ff; stop-opacity: 1"
+                        />
+                        <stop
+                            offset="100%"
+                            style="stop-color: #000055; stop-opacity: 1"
+                        />
+                    </radialGradient>
+                    <radialGradient
+                        id="yellowGradient"
+                        cx="50%"
+                        cy="50%"
+                        r="50%"
+                        fx="50%"
+                        fy="50%"
+                    >
+                        <stop
+                            offset="0%"
+                            style="stop-color: #ffff00; stop-opacity: 1"
+                        />
+                        <stop
+                            offset="100%"
+                            style="stop-color: #555500; stop-opacity: 1"
+                        />
+                    </radialGradient>
+                </defs>
+                <audio id="audioPlayer" controls style="display: none"></audio>
+
+                <line
+                    x1="20%"
+                    y1="0"
+                    x2="20%"
+                    y2="80%"
+                    stroke="green"
+                    stroke-width="5"
+                />
+                <line
+                    x1="40%"
+                    y1="0"
+                    x2="40%"
+                    y2="80%"
+                    stroke="red"
+                    stroke-width="5"
+                />
+                <line
+                    x1="60%"
+                    y1="0"
+                    x2="60%"
+                    y2="80%"
+                    stroke="blue"
+                    stroke-width="5"
+                />
+                <line
+                    x1="80%"
+                    y1="0"
+                    x2="80%"
+                    y2="80%"
+                    stroke="yellow"
+                    stroke-width="5"
+                />
+
+                <circle
+                    cx="20%"
+                    cy="327.25"
+                    r="5%"
+                    fill="url(#greenGradient)"
+                    stroke="transparent"
+                    stroke-width="2"
+                />
+                <circle
+                    cx="40%"
+                    cy="327.25"
+                    r="5%"
+                    fill="url(#redGradient)"
+                    stroke="transparent"
+                    stroke-width="2"
+                />
+                <circle
+                    cx="60%"
+                    cy="327.25"
+                    r="5%"
+                    fill="url(#blueGradient)"
+                    stroke="transparent"
+                    stroke-width="2"
+                />
+                <circle
+                    cx="80%"
+                    cy="327.25"
+                    r="5%"
+                    fill="url(#yellowGradient)"
+                    stroke="transparent"
+                    stroke-width="2"
+                />
+
+                <!-- game over text box -->
+                <g id="gameOver" visibility="hidden">
+                    <rect
+                        x="26"
+                        y="120"
+                        fill="white"
+                        height="48"
+                        width="149"
+                    ></rect>
+                    <text x="36" y="150">Game End</text>
+                </g>
+            </svg>
+            <div id="sideBar" class="flex col">
+                <div id="info" class="flex col">
+                    <table>
+                        <tr>
+                            <td><span class="left">Multiplier:</span></td>
+                            <td><span id="multiplierText">...</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="left">Score:</span></td>
+                            <td><span id="scoreText">...</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="left">Highscore:</span></td>
+                            <td><span id="highScoreText">...</span></td>
+                        </tr>
+                    </table>
+                    <div id="controls">
+                        <h4>Controls:</h4>
+                        <table>
+                            <tr>
+                                <td><div id="KeyA" class="key">&#65;</div></td>
+                            </tr>
+                            <tr>
+                                <td><div id="KeyS" class="key">&#83;</div></td>
+                            </tr>
+                            <tr>
+                                <td><div id="KeyK" class="key">&#75;</div></td>
+                            </tr>
+                            <tr>
+                                <td><div id="KeyL" class="key">&#76;</div></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="songSelection" class="flex col">
+                        <button data-song="RockinRobin">Rockin Robin</button>
+                        <button data-song="Runaway">Runaway</button>
+                        <button data-song="Sleepin">Sleepin</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script type="module" src="./src/main.ts"></script>
+    </body>
+</html>
