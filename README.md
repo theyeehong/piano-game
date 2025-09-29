@@ -1,5 +1,3 @@
-# Assignment 1
-
 ## Usage
 
 Setup (requires node.js):
